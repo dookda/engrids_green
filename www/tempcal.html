@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>green area</title>
+    <script
+        type="text/javascript"> (function () { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet.pm@latest/dist/leaflet.pm.css" /> -->
+    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="leaflet-openweathermap.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <a class="navbar-brand font-weight-bolder mr-3" href="index.html"><img src="assets/img/logo.png"></a>
+        <button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault"
+            aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsDefault">
+            <ul class="navbar-nav mr-auto align-items-center">
+
+            </ul>
+            <ul class="navbar-nav ml-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">เกี่ยวกับโครงการ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="tempcal.html">พื้นที่สีเขียว</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pin.html">เก็บข้อมูล</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">สถิติ</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <main role="main">
+        <section class="mt-4 mb-5">
+            <div class="container-fluid">
+                <div class="col-12 title" class="font-weight-bold f-18">อุณหภูมิเฉลี่ยในช่วงเดือน กันยายน ถึง พฤศจิกายน
+                    <span id="temp"></span>
+                    <!-- | <span id="temp_max"></span> |
+                    <span id="temp_min"></span> -->
+                </div>
+                <div class="col-sm-12 mt-1">
+                    <div class="card">
+                        <span class="font-weight-bold f-18">คำนวณการลดลงของอุณหภูมิพื้นผิวจากพื้นที่สีเขียว</span>
+                        <!-- <div>
+                            <label for="usr">ค่าสัมประสิทธิ์สำหรับคำนวณการลดลงของอุณหภูมิ (ทดสอบ):</label>
+                            <input type="number" class="form-control bg-graylight border-0 font-weight-bold"
+                                id="coef" step="0.0001">
+                        </div> -->
+                    </div>
+                    <div class="card mt-2">
+                        <span class="" id="count">เพิ่มพื้นที่สีเขียวโดยการวาดลงบนแผนที่</span>
+                        <span class="f-green" id="tmpDown"></span>
+                        <span class="f-diff" id="tmpDiff"></span>
+                    </div>
+                    <div class="card mt-3" id="report">
+                        <ul class="list-group " id="inner"></ul>
+                    </div>
+                </div>
+                <p>
+                    <hr>
+                <p>
+                <div class="row">
+                    <!-- <div class="card-columns"> -->
+                    <div class="col-sm-12 mt-1">
+                        <div class="card round shadow-sm" id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="PopupG" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ข้อมูลแปลงพื้นที่สีเขียวที่เพิ่มใหม่</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="count2"> </div>
+                    <div id="tmpDown2"> </div>
+                    <div id="tmpDiff2"> </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer  text-center">
+        <div class="container">
+            <p>© <span class="credits font-weight-bold">
+                    <a target="_blank" class="text-dark" href="#">Dev by EnGRIDs</a>
+                </span>
+            </p>
+        </div>
+
+    </footer>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="/__/firebase/7.16.1/firebase-app.js"></script> -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <script src="/__/firebase/7.16.1/firebase-analytics.js"></script> -->
+
+    <!-- Initialize Firebase -->
+    <!-- <script src="/__/firebase/init.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- <script src="https://unpkg.com/leaflet.pm@latest/dist/leaflet.pm.min.js"></script> -->
+    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+    <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
+    <script src='leaflet-openweathermap.js'></script>
+    <script src="./jsonGrid.js"></script>
+    <script src="./jsonPoint.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
