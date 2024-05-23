@@ -28,21 +28,21 @@
         height: auto;
     }
 
+    .container-fluid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     .card {
         margin-top: 15px;
         width: 100%;
         max-width: 1080px;
-        /* Adjust this value based on your needs */
-        /* margin: 0 auto; */
-        /* Center the card horizontally */
         border: 1px solid #ddd;
-        /* Card border */
         border-radius: 10px;
-        /* Card border-radius */
         overflow: hidden;
-        /* Clip children elements to card boundaries */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        /* Optional: Add shadow for better appearance */
+        text-align: center;
     }
 
     .card img {
@@ -73,7 +73,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">เกี่ยวกับโครงการ</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="dashboard.html">ร้อยเรื่องราว</a>
                 </li>
                 <li class="nav-item">
@@ -90,7 +90,7 @@
     <main role="main">
         <section class="mt-4 mb-5">
             <div class="container-fluid">
-                <div class="card">
+                <div class="card ">
                     <img src="./img/Slide1.png" alt="Image" class="responsive-image">
                 </div>
                 <div class="card">
