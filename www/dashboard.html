@@ -22,22 +22,37 @@
 
 </head>
 <style>
-    .responsive-iframe {
-        position: relative;
+    .responsive-image {
         width: 100%;
-        height: 0;
-        padding-bottom: 56.25%;
-        /* 16:9 aspect ratio */
-        overflow: hidden;
+        max-width: 1080px;
+        height: auto;
     }
 
-    .responsive-iframe iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
+    .card {
+        margin-top: 15px;
         width: 100%;
-        height: 100%;
-        border: 0;
+        max-width: 1080px;
+        /* Adjust this value based on your needs */
+        /* margin: 0 auto; */
+        /* Center the card horizontally */
+        border: 1px solid #ddd;
+        /* Card border */
+        border-radius: 10px;
+        /* Card border-radius */
+        overflow: hidden;
+        /* Clip children elements to card boundaries */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Optional: Add shadow for better appearance */
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .card-content {
+        padding: 16px;
     }
 </style>
 
@@ -75,8 +90,44 @@
     <main role="main">
         <section class="mt-4 mb-5">
             <div class="container-fluid">
-                <div class="responsive-iframe">
-                    <iframe src="./pptopt.pdf"> </iframe>
+                <div class="card">
+                    <img src="./img/Slide1.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide2.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide3.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide4.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide5.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide6.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide7.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide8.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide9.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide10.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide11.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide12.png" alt="Image" class="responsive-image">
+                </div>
+                <div class="card">
+                    <img src="./img/Slide13.png" alt="Image" class="responsive-image">
                 </div>
             </div>
         </section>

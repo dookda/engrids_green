@@ -41,7 +41,7 @@ map.on("click", (e) => {
   getGreen(e.latlng.lat, e.latlng.lng);
 });
 
-const url = 'http://localhost:3000';
+// const url = 'http://localhost:3000';
 // const url = "https://rti2dss.com:3400";
 const geoserv = "https://engrids.soc.cmu.ac.th/geoserver/panus/wms?";
 
@@ -206,7 +206,7 @@ function handleFiles(e) {
 }
 
 function getGreen(lat, lon) {
-  $.get(url + "/api/getgreen/" + lat + "/" + lon, res => {
+  $.get("/api/getgreen/" + lat + "/" + lon, res => {
     // console.log(res.data.length)
     if (res.data.length >= 1) {
       $("#greendata").val(res.data[0].name);
@@ -220,7 +220,7 @@ async function getData() {
     map.removeLayer(marker);
   }
 
-  await $.get(url + "/api/pin-getdata", res => {
+  await $.get("/api/pin-getdata", res => {
     marker = L.geoJSON(res, {
       pointToLayer: (feature, latlng) => {
         let icon = check;
@@ -286,7 +286,7 @@ function insertData() {
     geom: JSON.stringify(gps.toGeoJSON().geometry)
   };
 
-  $.post(url + "/api/pin-insert", obj).done(res => {
+  $.post("/api/pin-insert", obj).done(res => {
     getData();
     dataurl = "-";
     $("form :input").val("");
@@ -305,7 +305,7 @@ function editData() {
     geom: pos.geom,
     id: pos.id
   };
-  $.post(url + "/api/pin-update", obj, res => {
+  $.post("/api/pin-update", obj, res => {
     getData();
     $("form :input").val("");
     $("#preview").attr("src", "");
@@ -320,7 +320,7 @@ function deleteData() {
   const obj = {
     id: pos.id
   };
-  $.post(url + "/api/pin-delete", obj, res => {
+  $.post("/api/pin-delete", obj, res => {
     getData();
     $("form :input").val("");
     $("#preview").attr("src", "");
