@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Green Area</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="./about.css">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .bg-img {
+            position: relative;
+            background-image: url('./assets/img/873.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .bg-text {
+            background-color: rgba(15, 81, 49, 0.3);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 80%;
+        }
+
+        @media (max-width: 768px) {
+            .bg-text {
+                width: 90%;
+                font-size: smaller;
+            }
+        }
+
+        .footer {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .bottom-aligned {
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <a class="navbar-brand font-weight-bolder mr-3" href="index.html"><img src="assets/img/logo.png" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault"
+            aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsDefault">
+            <ul class="navbar-nav mr-auto align-items-center"></ul>
+            <ul class="navbar-nav ml-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">เกี่ยวกับโครงการ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">ร้อยเรื่องราว</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tempcal.html">พื้นที่สีเขียว</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pin.html">เก็บข้อมูล</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main">
+        <section class="mt-4 mb-5">
+            <div class="container-fluid content">
+                <div class="bg-img">
+                    <div class="bg-text">
+                        <img src="./assets/img/enlogo.png" width="150px" alt="EN Logo">
+                        <h3>โครงการผลักดันการจัดทำผังชุมชนเพื่อรักษาพื้นที่สีเขียวในเมือง</h3>
+                        <hr>
+                        <p>จากการขยายตัวของพื้นที่เมืองโดยเฉพาะด้านการคมนาคมขนส่งและการสร้างที่อยู่อาศัย
+                            ทำให้ชุมชนและเมืองในประเทศไทยสูญเสียพื้นที่สีเขียวจำนวนมาก
+                            เกิดการขาดแหล่งบรรเทาความร้อน
+                            ขาดแหล่งดูดซับมลพิษทางอากาศ ส่งผลกระทบต่อสุขภาพของประชาชน
+                            การเพิ่มพื้นที่สีเขียวมีศักยภาพสูงสามารถสร้างความสมดุลของระบบนิเวศเมือง
+                            บรรเทาผลกระทบจากการเปลี่ยนแปลงสภาพภูมิอากาศ อนุรักษ์ความหลากหลายทางชีวภาพ
+                            เป็นแหล่งเพาะปลูกพืชเพื่อเป็นอาหาร สร้างเสริมสุขภาพทั้งร่างกายและจิตใจ
+                            ป้องกันภัยพิบัติ
+                            รวมทั้งให้ชุมชนและเมืองมีมาตรฐานเทียบเท่าชุมชนและเมืองในระดับสากลและดึงดูดความสนใจของนักท่องเที่ยวผู้มาเยือน
+                            ดังนั้น สำนักงานนโยบายและแผนทรัพยากรธรรมชาติและสิ่งแวดล้อม
+                            จึงเห็นความจำเป็นดังกล่าวจึงได้พัฒนาระบบบริหารจัดการด้วยข้อมูลสารสนเทศภูมิศาสตร์ผ่านแบบจำลองความสัมพันธ์การเปลี่ยนแปลงความร้อน
+                            (อุณหภูมิ)
+                            กับสัดส่วนพื้นที่สีเขียวเพื่อเป็นเครื่องมือที่สำคัญในการดูแลรักษาและพัฒนาพื้นที่สีเขียวและพื้นที่โล่งอย่างยั่งยืน
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer  text-center">
+        <div class="container">
+            <p><span class="credits font-weight-bold bottom-aligned ">
+                    <a class="text-dark" href="https://engrids.soc.cmu.ac.th/">© พัฒนาโดย </a>
+                </span><img src="./img/engrids.png" alt="" width="70px">
+            </p>
+        </div>
+
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="./about.js"></script>
+</body>
+
+</html>

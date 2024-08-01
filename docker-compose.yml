@@ -1,0 +1,33 @@
+services:
+  postgis:
+    container_name: green_postgis
+    image: postgis/postgis
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=data
+    volumes:
+      - ./postgis/:/docker-entrypoint-initdb.d
+    ports:
+      - 5435:5432
+
+  nodejs:
+    container_name: green_nodejs
+    image: node
+    working_dir: /app/nodejs
+    restart: always
+    depends_on:
+      - postgis
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./nodejs:/app/nodejs
+    ports:
+      - 3200:3000
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:3000" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    command: bash -c "npm i && npm i -g nodemon  && nodemon server.js"
