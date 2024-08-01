@@ -206,7 +206,7 @@ function handleFiles(e) {
 }
 
 function getGreen(lat, lon) {
-  $.get("/api/getgreen/" + lat + "/" + lon, res => {
+  $.get("/green/api/getgreen/" + lat + "/" + lon, res => {
     // console.log(res.data.length)
     if (res.data.length >= 1) {
       $("#greendata").val(res.data[0].name);
@@ -220,7 +220,7 @@ async function getData() {
     map.removeLayer(marker);
   }
 
-  await $.get("/api/pin-getdata", res => {
+  await $.get("/green/api/pin-getdata", res => {
     marker = L.geoJSON(res, {
       pointToLayer: (feature, latlng) => {
         let icon = check;
@@ -305,7 +305,7 @@ function editData() {
     geom: pos.geom,
     id: pos.id
   };
-  $.post("/api/pin-update", obj, res => {
+  $.post("/green/api/pin-update", obj, res => {
     getData();
     $("form :input").val("");
     $("#preview").attr("src", "");
@@ -320,7 +320,7 @@ function deleteData() {
   const obj = {
     id: pos.id
   };
-  $.post("/api/pin-delete", obj, res => {
+  $.post("/green/api/pin-delete", obj, res => {
     getData();
     $("form :input").val("");
     $("#preview").attr("src", "");
