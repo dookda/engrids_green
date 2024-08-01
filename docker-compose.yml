@@ -6,7 +6,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
-      - POSTGRES_DB=data
+      # - POSTGRES_DB=data
     volumes:
       - ./postgis/:/docker-entrypoint-initdb.d
     ports:
